@@ -1,4 +1,4 @@
-Welcome to the rUNSWift 2017 git repository.
+Welcome to COSC2408 Programming Project 1 Robot Soccer git repository.
 
 The directory structure is:
 
@@ -12,10 +12,3 @@ The directory structure is:
 * **utils**:
     This is the source code for any off-nao utilities, such as colour
     calibration or offline debugging utilities.
-
-The [wiki](../../wiki) holds the documentation.
-
-Of note:
-
-* [Getting Started](../../wiki/Getting-Started)
-* [rUNSWift Infrastructure](../../wiki/rUNSWift-Infrastructure)
