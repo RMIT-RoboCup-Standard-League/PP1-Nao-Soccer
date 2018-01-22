@@ -1,0 +1,6 @@
+#!/bin/sh
+echo "!!!"
+echo "\033[31m WARNING: build \033[0m is deprecated, please use \033[36m nao_build \033[0m"
+echo "!!!"
+cd ${RUNSWIFT_CHECKOUT_DIR}/bin
+nao_build "$@"
