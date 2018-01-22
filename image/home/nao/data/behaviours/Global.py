@@ -1,5 +1,11 @@
 import robot
 
+#Import runtime python library in source code
+import sys
+sys.path.append('/home/ubuntu/rUNSWift/ctc/sysroot_legacy/usr/lib/python2.7')
+sys.path.append('/home/ubuntu/rUNSWift/ctc/sysroot_legacy/usr/lib/python2.7/lib-dynload')
+sys.path.append('/home/ubuntu/rUNSWift/ctc/sysroot_legacy/usr/lib/python2.7/site-packages')
+
 import math
 
 from Constants import GameState, BALL_KICKOFF_STARTED_DISTANCE
