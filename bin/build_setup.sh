@@ -96,7 +96,7 @@ export LINUX_CTC_ZIP=ctc-linux64-atom-2.1.4.13.zip
 export OSX_CTC_ZIP=ctc-mac64-atom-2.1.3.3.zip
 export BOOST_1550_LIBS=boost_libs.zip
 export BOOST_HEADERS=boostheaders.zip
-export LIBUUID=libuuid.so.1.3.0
+export LIBUUID=libuuid.so
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   if [ ! -f ${LINUX_CTC_ZIP} ]; then
@@ -131,8 +131,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     export BOOST_1550_LIB_DIR="$RUNSWIFT_CHECKOUT_DIR"/ctc/boost_libs/
     unzip -j -q -o ${BOOST_1550_LIBS} -d ${BOOST_1550_LIB_DIR}
     # sudo unzip -j -q -o ${BOOST_1550_LIBS} -d /usr/lib/i386-linux-gnu/
-    #Copy boost libraries into runtime library
-    cp $RUNSWIFT_CHECKOUT_DIR/ctc/boost_libs/* $RUNSWIFT_CHECKOUT_DIR/ctc/ctc-linux-linux64-atom-2.1.4.13/boost/lib
   fi
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
