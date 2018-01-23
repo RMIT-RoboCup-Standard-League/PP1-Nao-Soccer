@@ -58,27 +58,16 @@ sudo apt-get install default-jdk default-jre
 
 # Download modified roboviz / simspark from runswift server 
 export ROBOVIZ=roboviz.tar.gz
-export SIMSPARK=simspark.tar.gz
 
 myecho "Downloading/extracting simulation software..."
 if [ ! -d roboviz ]; then
 	myecho "Downloading modified RoboViz..."
-	wget --continue --timestamping http://runswift.cse.unsw.edu.au/simulation/${ROBOVIZ}
-fi
-
-if [ ! -d simspark ]; then
-	myecho "Downloading modified simspark..."
-	wget --continue --timestamping http://runswift.cse.unsw.edu.au/simulation/${SIMSPARK}
+	wget --continue --timestamping http://titan.csit.rmit.edu.au/~s3583185/Nao-Soccer/${ROBOVIZ}
 fi
 
 if [ ! -d roboviz ]; then
 	myecho "Extracting roboviz..."
 	tar -zxf ${ROBOVIZ} roboviz
-fi
-
-if [ ! -d simspark ]; then
-	myecho "Extracting simspark..."
-	tar -zxf ${SIMSPARK} simspark
 fi
 
 myecho "Building simulation software..."
@@ -88,30 +77,6 @@ if [ ${MACHINE_TYPE} == 'x86_64' ]; then
 else
 	sudo ./roboviz/scripts/build-linux32.sh || exit
 fi
-
-myecho "Building and installing simspark..."
-sleep 2
-cd simspark/spark
-if [ -d build ] ; then
-    rm -rf build
-fi
-mkdir build
-cd build
-cmake .. || exit
-(sudo make -j${NPROC} && sudo make install) || exit
-sudo ldconfig
-
-myecho "Building and installing rcssserver3d..."
-sleep 2
-cd ../../rcssserver3d
-if [ -d build ] ; then
-    rm -rf build
-fi
-mkdir build
-cd build
-cmake .. || exit
-(sudo make -j${NPROC} && sudo make install) || exit
-sudo ldconfig
 
 # Add roboviz path
 myecho "Adding roboviz to system path..."
@@ -142,7 +107,7 @@ fi
 
 # Copy numpy in to CTC
 myecho "Downloading and installing numpy..."
-wget --continue --timestamping http://runswift.cse.unsw.edu.au/simulation/numpy.tar.gz
+wget --continue --timestamping http://titan.csit.rmit.edu.au/~s3583185/Nao-Soccer/numpy.tar.gz
 tar -zxf numpy.tar.gz numpy
 sudo cp -r numpy $RUNSWIFT_CHECKOUT_DIR/ctc/sysroot_legacy/usr/lib/python2.7/site-packages/.
 rm -r numpy*
