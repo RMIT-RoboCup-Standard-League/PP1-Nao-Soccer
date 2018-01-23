@@ -28,8 +28,8 @@ unset CTC_DIR
 # Set up git
 cat << USER_CONFIG
 If the user info is incorrect, please configure it like:
-  git config user.name Jayen
-  git config user.email jayen@cse.unsw.edu.au
+  git config user.name Ran Lu
+  git config user.email s3583185@student.rmit.edu.au
 USER_CONFIG
 echo Your user name: $(git config user.name)
 echo Your email: $(git config user.email)
@@ -92,31 +92,29 @@ fi
 mkdir -p "$RUNSWIFT_CHECKOUT_DIR"/ctc
 cd "$RUNSWIFT_CHECKOUT_DIR"/ctc
 
-export LINUX_CTC_ZIP=ctc-linux64-atom-2.1.3.3.zip
+export LINUX_CTC_ZIP=ctc-linux64-atom-2.1.4.13.zip
 export OSX_CTC_ZIP=ctc-mac64-atom-2.1.3.3.zip
-export BOOST_1550_LIBS=boost1550libs.zip
+export BOOST_1550_LIBS=boost_libs.zip
 export BOOST_HEADERS=boostheaders.zip
 export LIBUUID=libuuid.so.1.3.0
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   if [ ! -f ${LINUX_CTC_ZIP} ]; then
-    echo "Please provide the toolchain zip file: $LINUX_CTC_ZIP in $RUNSWIFT_CHECKOUT_DIR/ctc"
-    # Aldebaran should provide a direct download link !!!
-  fi
-
-  if [ ! -f ${BOOST_HEADERS} ]; then
-    echo "Downloading modified boost headers"
-    wget --continue --timestamping http://runswift.cse.unsw.edu.au/opennao2/build-2.1.3.3/${BOOST_HEADERS}
+    echo "Downloading the toolchain zip file ctc-linux64-atom-2.1.4.13.zip"
+    wget --continue --timestamping http://titan.csit.rmit.edu.au/~s3583185/Nao-Soccer/${LINUX_CTC_ZIP}
+    #Alternatively Aldebaran also provides a direct download link.
   fi
 
   if [ ! -f ${BOOST_1550_LIBS} ];  then
     echo "Downloading pre-compiled boost 1.55.0 libs"
-    wget --continue --timestamping http://runswift.cse.unsw.edu.au/opennao2/build-2.1.3.3/${BOOST_1550_LIBS}
+    wget --continue --timestamping http://titan.csit.rmit.edu.au/~s3583185/Nao-Soccer/${BOOST_1550_LIBS}
+    #Copy boost libraries into runtime library
+    cp * $RUNSWIFT_CHECKOUT_DIR/ctc/ctc-linux-linux64-atom-2.1.4.13/boost/lib
   fi
 
   if [ ! -f ${LIBUUID} ]; then
     echo "Downloading libuuid.so.1.3.0"
-    wget --continue --timestamping http://runswift.cse.unsw.edu.au/opennao2/build-2.1.3.3/${LIBUUID}
+    wget --continue --timestamping http://titan.csit.rmit.edu.au/~s3583185/Nao-Soccer/${LIBUUID}
   fi
 
   if [ -f ${LINUX_CTC_ZIP} ]; then
@@ -169,7 +167,7 @@ mkdir -p "$CTC_DIR"/../sysroot_legacy/usr/
 myecho Downloading/extracting sysroot_legacy/usr, this may take a *long* time...
 SYSROOT_ARCHIVE="sysroot_legacy.tar.gz"
 if [ ! -f ${SYSROOT_ARCHIVE} ]; then
-  wget --continue --timestamping http://runswift.cse.unsw.edu.au/opennao2/build-2.1.3.3/${SYSROOT_ARCHIVE}
+  wget --continue --timestamping http://titan.csit.rmit.edu.au/~s3583185/Nao-Soccer/${SYSROOT_ARCHIVE}
   tar -zxf ${SYSROOT_ARCHIVE}
 fi
 ############ Building ###########
