@@ -67,7 +67,7 @@ BehaviourAdapter::BehaviourAdapter(Blackboard *bb) : Adapter(bb), calibrationSki
 
    // Alert runswift team - whistle detection requires 4 channels, not 2
    std::string noHearWhistles = "";
-   int ret = system("python $RUNSWIFT_CHECKOUT_DIR/image/home/nao/whistle/alert_pulseaudio.py");
+   int ret = system("python /home/ubuntu/rUNSWift/image/home/nao/whistle/alert_pulseaudio.py");
    if (ret != 0) {
       noHearWhistles += "I can not hear whistles. ";
       std::cout << noHearWhistles << std::endl;

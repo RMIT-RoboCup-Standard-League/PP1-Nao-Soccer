@@ -96,7 +96,7 @@ export LINUX_CTC_ZIP=ctc-linux64-atom-2.1.4.13.zip
 export OSX_CTC_ZIP=ctc-mac64-atom-2.1.3.3.zip
 export BOOST_1550_LIBS=boost_libs.zip
 export BOOST_HEADERS=boostheaders.zip
-export LIBUUID=libuuid.so
+export LIBUUID=libuuid.so.1.3.0
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   if [ ! -f ${LINUX_CTC_ZIP} ]; then
