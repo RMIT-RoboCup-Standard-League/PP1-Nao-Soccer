@@ -108,8 +108,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   if [ ! -f ${BOOST_1550_LIBS} ];  then
     echo "Downloading pre-compiled boost 1.55.0 libs"
     wget --continue --timestamping http://titan.csit.rmit.edu.au/~s3583185/Nao-Soccer/${BOOST_1550_LIBS}
-    #Copy boost libraries into runtime library
-    cp * $RUNSWIFT_CHECKOUT_DIR/ctc/ctc-linux-linux64-atom-2.1.4.13/boost/lib
+
   fi
 
   if [ ! -f ${LIBUUID} ]; then
@@ -132,6 +131,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     export BOOST_1550_LIB_DIR="$RUNSWIFT_CHECKOUT_DIR"/ctc/boost_libs/
     unzip -j -q -o ${BOOST_1550_LIBS} -d ${BOOST_1550_LIB_DIR}
     # sudo unzip -j -q -o ${BOOST_1550_LIBS} -d /usr/lib/i386-linux-gnu/
+    #Copy boost libraries into runtime library
+    cp $RUNSWIFT_CHECKOUT_DIR/ctc/boost_libs/* $RUNSWIFT_CHECKOUT_DIR/ctc/ctc-linux-linux64-atom-2.1.4.13/boost/lib
   fi
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
