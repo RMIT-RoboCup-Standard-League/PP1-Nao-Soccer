@@ -90,6 +90,11 @@ SET(OFFNAO_RES
    resources/visualiser_resources.qrc
 )
 
+SET(CMAKE_AUTOMOC ON)
+SET(CMAKE_INCLUDE_CURRENT_DIR ON)
+find_package(Qt4 4.8.6 REQUIRED QtGui QtXml)
+
+
 # build cxx files for resources
 QT4_ADD_RESOURCES(OFFNAO_RES_SRCS ${OFFNAO_RES})
  
