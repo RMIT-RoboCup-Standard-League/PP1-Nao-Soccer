@@ -90,6 +90,12 @@ SET(OFFNAO_RES
    resources/visualiser_resources.qrc
 )
 
+set (CMAKE_MODULE_PATH "/home/ubuntu/rUNSWift/CMake")
+INCLUDE(cotire)
+set (PNG_PNG_INCLUDE_DIR "${CTC_DIR}/png/include")
+set (PNG_LIBRARY "${CTC_DIR}/png/lib")
+set (QGLVIEWER_LIBRARY "$(RUNSWIFT_CHECKOUT_DIR)/ctc/sysroot_legacy/usr/include/QGLViewer")
+
 if( Qt4_FOUND )
    message([status] "Qt4 Found. Proceeding...")
 else( Qt4_FOUND )
