@@ -97,6 +97,11 @@ else( Qt4_FOUND )
    SET(CMAKE_AUTOMOC ON)
    SET(CMAKE_INCLUDE_CURRENT_DIR ON)
    find_package(Qt4 4.8.6 REQUIRED QtGui QtXml)
+   set (CMAKE_MODULE_PATH "/home/ubuntu/rUNSWift/CMake")
+   INCLUDE(cotire)
+   set (PNG_PNG_INCLUDE_DIR "${CTC_DIR}/png/include")
+   set (PNG_LIBRARY "${CTC_DIR}/png/lib")
+   set (QGLVIEWER_LIBRARY "$(RUNSWIFT_CHECKOUT_DIR)/ctc/sysroot_legacy/usr/include/QGLViewer")
 endif( Qt4_FOUND )
 
 # build cxx files for resources
