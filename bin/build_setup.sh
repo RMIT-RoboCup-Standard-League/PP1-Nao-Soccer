@@ -200,7 +200,7 @@ cd ${GAME_CONTROLLER}
 if [ ! -f ${GAME_CONTROLLER}.zip ]; then
     echo "Downloading ${GAME_CONTROLLER}.zip"
     #wget --continue --timestamping http://spl.robocup.org/wp-content/uploads/downloads/${GAME_CONTROLLER}.zip
-    wget --continue --timestamping https://github.com/RMIT-RoboCup-Standard-League/PP1-Nao-Soccer/raw/Roclemir-patch-1/buildDownloads/GameController2017.zip
+    wget --continue https://github.com/RMIT-RoboCup-Standard-League/PP1-Nao-Soccer/raw/master/buildDownloads/${GAME_CONTROLLER}.zip
     echo "Extracting ${GAME_CONTROLLER}.zip ..."
     unzip -q ${GAME_CONTROLLER}.zip
     echo "Done."
