@@ -1,1 +1,2 @@
-Files in this folder will be downloaded when the program is compiled. Do not download these files seperately.
+Files in this folder will be downloaded when the program is compiled. There is no need to download 
+these files when the repository is cloned (hence this folder is in the .gitignore).
