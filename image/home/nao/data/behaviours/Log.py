@@ -6,9 +6,18 @@ logger.setLevel(logging.INFO)  # Set this to logging.INFO for comp
 
 log_folders = os.listdir('/var/volatile/runswift')
 log_folders.sort()
-log_folder = '/var/volatile/runswift/%s/behaviour' % log_folders[-1]
 
-file_handler = logging.FileHandler(log_folder)
+# Make sure we get the last folder and not a file
+for path in reversed(log_folders):
+	if(os.path.isdir('/var/volatile/runswift/%s' % path)):
+		log_folder_path = '/var/volatile/runswift/%s' % path 
+		break
+
+log = '%s/behaviour' % log_folder_path 
+
+
+
+file_handler = logging.FileHandler(log)
 logger.addHandler(file_handler)
 
 # Comment this handler out for competition
