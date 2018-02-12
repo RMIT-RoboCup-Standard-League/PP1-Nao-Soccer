@@ -63,7 +63,7 @@ def skill_instance_factory(blackboard):
     found_skill = False
     SkillClass = None
     behaviour_root = '/home/nao/data/behaviours'  # Nao + Windows = wat?
-    behaviour_packages = ['roles', 'skills', 'test']
+    behaviour_packages = ['roles', 'skills', 'tests']
     for package in behaviour_packages:
         look_in = os.path.join(behaviour_root, package)
         seen_modules = [name for _, name, _ in pkgutil.iter_modules([look_in])]
