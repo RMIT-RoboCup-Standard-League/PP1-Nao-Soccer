@@ -20,6 +20,8 @@ class WalkKickDribble(BehaviourTask):
         # this tells localisation that we are lining up and to give us a more
         # stable ball position
         if Global.ballRelPos().x < 300:
+            #Detect the ball and get its relative position to the robot
+	    Log.info('Ball Position x:%s   y:%s',Global.ballRelPos().x,Global.ballRelPos().y)
             self.world.b_request.doingBallLineUp = True
 
         active = self.world.blackboard.motion.active.body.actionType
